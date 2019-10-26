@@ -3,14 +3,81 @@
 
 <head>
 	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title> Assign6 </title>
+	<style>
+	* {
+  	box-sizing: border-box;
+	}
+
+	.column {
+  	float: left;
+  	width: 33.33%;
+  	padding: 5px;
+	}
+
+	/* Clearfix (clear floats) */
+	.row{
+ 	content: "";
+  	clear: both;
+  	display: table;
+	}
+</style>
 </head>
 
 <body>
-	<form>
-		
-	</form>
-	<script language="javascript">
+	<div class="row">
+		<div class="column">
 
+			<div id="assignA">
+
+			</div>
+
+			<div id="assignB">
+		
+			</div>
+
+			<div id="assignC">
+		
+			</div>
+
+			<div id="assignD">
+		
+			</div>
+
+			<div id="assignE">
+		
+			</div>
+
+		</div>
+	</div>
+
+	<script language="javascript">
+		var art = new Array;
+		// Hard code this five times for the five images 
+		art.push({name: "SMM World", price: "$200", smallImage: "smmSmall.png", largeImage: "smmlarge.png"});
+		art.push({name: "SMM Bubble", price: "$650", smallImage: "smmbubblesmall.jpg", largeImage: "smmbubblelarge.jpg"});
+		art.push({name: "SMM World", price: "$900", smallImage: "smmtabletsmall.jpeg", largeImage: "smmtabletlarge.jpeg"});
+		art.push({name: "SMM World", price: "$1250", smallImage: "smmhandsmall.jpg", largeImage: "smmhandlarge.png"});
+		art.push({name: "SMM World", price: "$1500", smallImage: "growthsmall.jpg", largeImage: "growthlarge.jpg"});
+		var tag = new Array;
+		for (var i = 0; i < 5; i++){
+			// If "id" + i doesnt work parseInt i into string
+			// var id = string(i);
+			tag[i] = "<img src=" + art[i].smallImage  + " alt=" + art[i].name + "id=" + i + " style=" + "width:100%" + ">"; 
+		}
+
+		$("#assignA").html(tag[0]);
+		$("#assignB").html(tag[1]);
+		$("#assignC").html(tag[2]);
+		$("#assignD").html(tag[3]);
+		$("#assignE").html(tag[4]);
+
+		$("#assignA").hover();
+		$("#assignB").hover();
+		$("#assignC").hover();
+		$("#assignD").hover();
+		$("#assignE").hover();
 	</script>
+
 </body>
