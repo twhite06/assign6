@@ -6,48 +6,73 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title> Assign6 </title>
 	<style>
-	* {
-  	box-sizing: border-box;
-	}
+* {
+  box-sizing: border-box;
+}
 
-	.column {
-  	float: left;
-  	width: 33.33%;
-  	padding: 5px;
-	}
+.column {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
 
-	/* Clearfix (clear floats) */
-	.row{
- 	content: "";
-  	clear: both;
-  	display: table;
-	}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.images{
+	height: 10em;
+	width: 10em;
+}
+
+.Bigimage{
+	height: 20em;
+	width: 20em;
+}
 </style>
 </head>
 
 <body>
 	<div class="row">
 		<div class="column">
-
 			<div id="assignA">
 
 			</div>
+		</div>
 
+		<div class="= column">
 			<div id="assignB">
 		
 			</div>
+		</div>
 
+		<div class="column">
 			<div id="assignC">
 		
 			</div>
+		</div>
 
+		<div class="column">
 			<div id="assignD">
 		
 			</div>
+		</div>
 
+		<div class="column">
 			<div id="assignE">
 		
 			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="texty">
+		
+		</div>
+		<div id= "bigIMG" class="Bigimage">
 
 		</div>
 	</div>
@@ -57,14 +82,19 @@
 		// Hard code this five times for the five images 
 		art.push({name: "SMM World", price: "$200", smallImage: "smmSmall.png", largeImage: "smmlarge.png"});
 		art.push({name: "SMM Bubble", price: "$650", smallImage: "smmbubblesmall.jpg", largeImage: "smmbubblelarge.jpg"});
-		art.push({name: "SMM World", price: "$900", smallImage: "smmtabletsmall.jpeg", largeImage: "smmtabletlarge.jpeg"});
-		art.push({name: "SMM World", price: "$1250", smallImage: "smmhandsmall.jpg", largeImage: "smmhandlarge.png"});
-		art.push({name: "SMM World", price: "$1500", smallImage: "growthsmall.jpg", largeImage: "growthlarge.jpg"});
-		var tag = new Array;
+		art.push({name: "SMM Tablet", price: "$900", smallImage: "smmtabletsmall.jpeg", largeImage: "smmtabletlarge.jpeg"});
+		art.push({name: "SMM Hand", price: "$1250", smallImage: "smmhandsmall.jpg", largeImage: "smmhandlarge.jpg"});
+		art.push({name: "SMM Growth", price: "$1500", smallImage: "growthsmall.jpg", largeImage: "growthlarge.jpg"});
+		var tag = new Array, tag2 = new Array, text = new Array;
 		for (var i = 0; i < 5; i++){
-			// If "id" + i doesnt work parseInt i into string
-			// var id = string(i);
-			tag[i] = "<img src=" + art[i].smallImage  + " alt=" + art[i].name + "id=" + i + " style=" + "width:100%" + ">"; 
+			tag[i] = "<img src=" + art[i].smallImage  + " alt=" + art[i].name + "id=" + i + ">"; 
+		}
+		//how to manually resize thiese images with style
+		for (var i = 0; i < 5; i++){
+			tag2[i] = "<img src=" + art[i].largeImage + " alt=" + art[i].name + "id=" + i + ">"; 
+		}
+		for (var i = 0; i < 5; i++){
+			text[i] = art[i].name + ": " + art[i].price; 
 		}
 
 		$("#assignA").html(tag[0]);
@@ -73,11 +103,63 @@
 		$("#assignD").html(tag[3]);
 		$("#assignE").html(tag[4]);
 
-		$("#assignA").hover();
-		$("#assignB").hover();
-		$("#assignC").hover();
-		$("#assignD").hover();
-		$("#assignE").hover();
+		$("#assignA").hover(function(){
+			$("#bigIMG").html(tag2[0]);
+			$("#bigIMG").hide();
+			$("#bigIMG").fadeIn("slow");
+		});
+
+		$("#assignB").hover(function(){
+			$("#bigIMG").html(tag2[1]);
+			$("#bigIMG").hide();
+			$("#bigIMG").fadeIn("slow");
+		});
+
+		$("#assignC").hover(function(){
+			$("#bigIMG").html(tag2[2]);
+			$("#bigIMG").hide();
+			$("#bigIMG").fadeIn("slow");
+		});
+
+		$("#assignD").hover(function(){
+			$("#bigIMG").html(tag2[3]);
+			$("#bigIMG").hide();
+			$("#bigIMG").fadeIn("slow");
+		});
+
+		$("#assignE").hover(function(){
+			$("#bigIMG").html(tag2[4]);
+			$("#bigIMG").hide();
+			$("#bigIMG").fadeIn("slow");
+		});
+
+		// These click functions only work once when the page loads
+
+		$("#assignA").click(function(){
+			$("#texty").html(text[0]);
+			$("#texty").hide(5000);
+		});
+
+		$("#assignB").click(function(){
+			$("#texty").html(text[1]);
+			$("#texty").hide(5000);
+		});
+
+		$("#assignC").click(function(){
+			$("#texty").html(text[2]);
+			$("#texty").hide(5000);
+		});
+
+		$("#assignD").click(function(){
+			$("#texty").html(text[3]);
+			$("#texty").hide(5000);
+		});
+
+		$("#assignE").click(function(){
+			$("#texty").html(text[4]);
+			$("#texty").hide(5000);
+		});
 	</script>
 
 </body>
+
